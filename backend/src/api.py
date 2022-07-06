@@ -63,13 +63,13 @@ def get_drinks(jwt):
 @requires_auth('get:drinks-detail')
 def get_drink_details(jwt, drink_id):
     try:
-        drink = drink.query.filter(Drink.id==drink_id).one_or_None()
-        if drink is None:
+        drinks = Drink.query.filter(Drink.id==drink_id).one_or_none()
+        if drinks is None:
             abort(404)
         else:
             return jsonify({
                 "success": True,
-                "drinks": [drink.long()]
+                "drinks": [drink.long() for drink in drinks]
             })
     
     except:
