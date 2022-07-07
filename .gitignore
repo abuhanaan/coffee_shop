@@ -1,3 +1,5 @@
 myEnv/
 backend/src/__pycache__/
 backend/src/auth/__pycache__/
+.vscode/
+front_end/node_modules/
